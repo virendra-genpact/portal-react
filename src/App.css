@@ -1,38 +1,61 @@
-.App {
-  text-align: center;
+html {
+  height: 100%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  height: 100%;
+  margin: 0;
+  background: linear-gradient(#b3ffab, #67fffc);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+a {
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.nav-link a {
+  height: 42px;
+  padding: 10px;
+  display: block;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.nav-link a:hover {
+  text-decoration: none;
+  color: #fff;
+  background: rgba(255,255,255,0.2);
+  border-left: #fff 3px solid;
+}
+
+#header {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  background: #000;
+  color: #bbbbbb;
+}
+
+#headerContent {
+  margin-left: 10px;
+}
+
+#page {
+  display: flex;
+  height: calc( 100vh - 50px);
+  /* calculate the height. Header is 30px */
+}
+
+#sideBar {
+  width: 230px;
+  background: #2D3140;
+}
+
+#content {
+  background: #F2F7FA;
+  flex: 1 0 auto;
+  /* enable grow, disable shrink */
+}
+
+/* quotes ui */
+.quote-stats {
+  background: white;
+  border: 1px solid lightgray;
 }
