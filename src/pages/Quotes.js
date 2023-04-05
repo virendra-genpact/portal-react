@@ -45,8 +45,8 @@ export default function Quotes() {
                 <div className="column"></div>
             </div>
 
-            <div className="columns">
-                <table className="table">
+            <div class="table-container">
+                <table className="table is-narrow">
                     <thead>
                         <tr>
                             <th><abbr title="Position">Quote #</abbr></th>
@@ -96,7 +96,7 @@ export default function Quotes() {
                     </tbody>
                 </table>
             </div>
-
+            
             <div className="columns">
                 <div className="column">
                     <nav className="pagination is-small" role="navigation" aria-label="pagination">

@@ -51,6 +51,7 @@ a {
 #content {
   background: #F2F7FA;
   flex: 1 0 auto;
+    /* padding: 20px 30px; */
   /* enable grow, disable shrink */
 }
 

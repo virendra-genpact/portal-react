@@ -33,7 +33,7 @@ function App() {
       <div id="page">
         <Sidebar/>
         
-        <div id="content" style={{padding: '20px 30px'}}>
+        <div id="content" className='p-5'>
           <RouterProvider router={router} />
         </div>
       </div>
