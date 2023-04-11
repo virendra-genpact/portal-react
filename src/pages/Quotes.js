@@ -1,23 +1,23 @@
 import React, { useState, useEffect } from 'react';
+import { Outlet } from 'react-router-dom';
+import { useGlobalContext } from '../context';
 
 
 export default function Quotes() {
 
+    const { quotes, isLoading, total_pages, total_entries, per_page } = useGlobalContext();
 
-    const [posts, setPosts] = useState([]);
-
-    useEffect(() => {
-        fetch('https://macquarie-dev.staging.gfincloud.com/rest/get/quote.xml')
-            .then((response) => response.json())
-            .then((data) => {
-                console.log(data);
-                setPosts(data);
-            })
-            .catch((err) => {
-                console.log(err.message);
-            });
-    }, []);
-
+    if(isLoading) {
+        return (
+            <>
+                <h1> Loading .... </h1>
+            </>
+        )
+    } else {
+        console.log(total_pages);
+        console.log(total_entries);
+        console.log(per_page);
+    }
 
     return(
         <>
@@ -45,7 +45,7 @@ export default function Quotes() {
                 <div className="column"></div>
             </div>
 
-            <div class="table-container">
+            <div className="table-container">
                 <table className="table is-narrow">
                     <thead>
                         <tr>
@@ -63,36 +63,20 @@ export default function Quotes() {
                         
                     </tfoot>
                     <tbody>
-                        <tr>
-                            <th>471146 </th>
-                            <td>This is a new Customer</td>
-                            <td>$30,032.11</td>
-                            <td>23</td>
-                            <td>$1 Buyout Lease</td>
-                            <td>Accepted</td>
-                            <td> </td>
-                            <td> Mahima vendor rep </td>
-                        </tr>
-                        <tr>
-                            <th>471146 </th>
-                            <td>This is a new Customer</td>
-                            <td>$30,032.11</td>
-                            <td>23</td>
-                            <td>$1 Buyout Lease</td>
-                            <td>Accepted</td>
-                            <td> </td>
-                            <td> Mahima vendor rep </td>
-                        </tr>
-                        <tr>
-                            <th>471146 </th>
-                            <td>This is a new Customer</td>
-                            <td>$30,032.11</td>
-                            <td>23</td>
-                            <td>$1 Buyout Lease</td>
-                            <td>Accepted</td>
-                            <td> </td>
-                            <td> Mahima vendor rep </td>
-                        </tr>
+                        {quotes.map(quote => {
+                            return (
+                                <tr key={ quote.id }>
+                                    <th> { quote.portal_number } </th>
+                                    <td> { quote.new_customer_name } </td>
+                                    <td>$30,032.11</td>
+                                    <td>23</td>
+                                    <td>$1 Buyout Lease</td>
+                                    <td>Accepted</td>
+                                    <td> </td>
+                                    <td> Mahima vendor rep </td>
+                                </tr>
+                            )
+                        })}
                     </tbody>
                 </table>
             </div>
@@ -114,6 +98,7 @@ export default function Quotes() {
                     </nav>
                 </div>
             </div>
+            <Outlet/>
         </>
     )
 }

@@ -60,3 +60,8 @@ a {
   background: white;
   border: 1px solid lightgray;
 }
+
+.active {
+  background-color: #848485;
+  border-left: 2px solid #dbdbdb;
+}

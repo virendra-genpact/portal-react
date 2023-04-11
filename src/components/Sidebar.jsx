@@ -1,14 +1,16 @@
+import { NavLink } from "react-router-dom";
+
 export default function Sidebar() {
     return(
         <div id="sideBar">
           <div className="nav-link">
-            <a href={`/`}>Dashboard</a>
+            <NavLink to="/">Dashboard</NavLink>
           </div>
           <div className="nav-link">
-            <a href={`/quotes`}>Quotes</a>
+            <NavLink to="/quotes">Quotes</NavLink>
           </div>
           <div className="nav-link">
-            <a href={`/applications`}>Application</a>
+            <NavLink to="/applications">Applications</NavLink>
           </div>
         </div>
     )

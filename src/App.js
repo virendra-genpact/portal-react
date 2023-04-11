@@ -4,40 +4,33 @@ import Header from './components/Header';
 import Sidebar from './components/Sidebar';
 
 import {
+  BrowserRouter,
   createBrowserRouter,
+  Route,
   RouterProvider,
+  Routes,
 } from "react-router-dom";
 import Dashboard from './pages/Dashboard';
 import Quotes from './pages/Quotes';
 import Application from './pages/Applications';
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Dashboard/>,
-  },
-  {
-    path: "/quotes",
-    element: <Quotes/>,
-  },
-  {
-    path: "/applications",
-    element: <Application/>,
-  },
-]);
 
 function App() {
   return (
-    <>
+    <BrowserRouter>
       <Header />
       <div id="page">
         <Sidebar/>
         
         <div id="content" className='p-5'>
-          <RouterProvider router={router} />
+          <Routes>
+            <Route path='/' element={<Dashboard/>}/>
+            <Route path='/applications' element={<Application/>}/>
+            <Route path='/quotes' element={<Quotes/>}/>
+          </Routes>
         </div>
       </div>
-    </>
+    </BrowserRouter>
   );
 }
 
