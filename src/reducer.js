@@ -9,6 +9,9 @@ const reducer = (state, action) => {
             return{
                 ...state,
                 quotes: action.payload.quotes,
+                total_pages: action.payload.total_pages,
+                total_entries: action.payload.total_entries,
+                per_page: action.payload.per_page,
                 isLoading: false
             }
     }
